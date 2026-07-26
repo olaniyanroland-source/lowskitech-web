@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import rolandPhoto from "../assets/roland5.jpeg";
-import workPhoto from "../assets/work.jpeg";
+import rolandPhoto from "../assets/roland-portrait.jpg";
+import workPhoto from "../assets/work-optimized.jpg";
 
 const values = [
   { title: "Craftsmanship", desc: "We write clean, maintainable code and design with obsessive attention to detail." },
@@ -138,6 +138,10 @@ function ScrollStory() {
         <img
           src={rolandPhoto}
           alt="Roland Olaniyan portrait"
+          width="478"
+          height="720"
+          loading="eager"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-top transition-[opacity,transform,filter] duration-700"
           style={{
             opacity: portraitReveal,
@@ -148,6 +152,10 @@ function ScrollStory() {
         <img
           src={workPhoto}
           alt="Roland working on a computer"
+          width="405"
+          height="720"
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center transition-[opacity,transform,filter] duration-700"
           style={{
             opacity: computerReveal,
@@ -255,7 +263,15 @@ export default function About() {
             {founder.map((m) => (
               <div key={m.name} className="p-6 rounded-2xl bg-slate-900 border border-slate-800 group">
                 <div className="w-28 h-36 rounded-2xl overflow-hidden mb-4 bg-slate-800">
-                  <img src={m.image} alt={m.name} className="w-full h-full object-cover object-top" />
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    width="112"
+                    height="144"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
                 <h3 className="text-white font-bold text-lg">{m.name}</h3>
                 <p className="text-sky-400 text-sm font-medium mb-2">{m.role}</p>

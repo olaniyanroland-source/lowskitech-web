@@ -1,7 +1,9 @@
 {
-  "description": "This platform offers a comprehensive web development hub, showcasing services, portfolio, testimonials, and resources to enhance online presence for businesses.",
+  "title": "",
+  "description": "",
+  "language": "en",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,

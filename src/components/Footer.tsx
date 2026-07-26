@@ -41,6 +41,10 @@ export default function Footer() {
               <img
                 src={lowskiLogo}
                 alt="Lowski Tech"
+                width="144"
+                height="112"
+                loading="lazy"
+                decoding="async"
                 className="h-28 w-36 object-contain object-center"
               />
             </Link>

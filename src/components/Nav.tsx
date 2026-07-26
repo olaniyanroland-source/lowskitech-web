@@ -28,7 +28,8 @@ export default function Nav() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -49,6 +50,9 @@ export default function Nav() {
           <img
             src={lowskiLogo}
             alt="Lowski Tech"
+            width="80"
+            height="56"
+            decoding="async"
             className="h-14 w-20 object-contain object-center"
           />
         </Link>

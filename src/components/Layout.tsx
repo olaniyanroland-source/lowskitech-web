@@ -10,11 +10,54 @@ export default function Layout({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (document.getElementById(ELFSIGHT_SCRIPT_ID)) return;
 
-    const script = document.createElement("script");
-    script.id = ELFSIGHT_SCRIPT_ID;
-    script.src = ELFSIGHT_SCRIPT_SRC;
-    script.async = true;
-    document.body.appendChild(script);
+    let loaded = false;
+    let idleId: number | undefined;
+    let fallbackId: number | undefined;
+
+    const loadScript = () => {
+      if (loaded || document.getElementById(ELFSIGHT_SCRIPT_ID)) return;
+
+      loaded = true;
+      const script = document.createElement("script");
+      script.id = ELFSIGHT_SCRIPT_ID;
+      script.src = ELFSIGHT_SCRIPT_SRC;
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    };
+
+    const win = window as Window & {
+      requestIdleCallback?: (
+        callback: IdleRequestCallback,
+        options?: IdleRequestOptions
+      ) => number;
+      cancelIdleCallback?: (handle: number) => void;
+    };
+
+    const scheduleLoad = () => {
+      if (win.requestIdleCallback) {
+        idleId = win.requestIdleCallback(loadScript, { timeout: 6000 });
+        return;
+      }
+
+      fallbackId = window.setTimeout(loadScript, 6000);
+    };
+
+    const interactionEvents = ["pointerdown", "keydown", "scroll", "touchstart"];
+
+    interactionEvents.forEach((eventName) => {
+      window.addEventListener(eventName, loadScript, { once: true, passive: true });
+    });
+
+    scheduleLoad();
+
+    return () => {
+      if (idleId && win.cancelIdleCallback) win.cancelIdleCallback(idleId);
+      if (fallbackId) window.clearTimeout(fallbackId);
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, loadScript);
+      });
+    };
   }, []);
 
   return (

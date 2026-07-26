@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import workPhoto from "../assets/siaosports.png";
-import asaPhoto from "../assets/asastudio.png";
-import portfolio from "../assets/portfolio.png";
-import siaoCeo from "../assets/ceo.jpeg";
-import silasPhoto from "../assets/silas.jpg";
+import workPhoto from "../assets/siaosports-optimized.jpg";
+import asaPhoto from "../assets/asastudio-optimized.jpg";
+import portfolio from "../assets/portfolio-optimized.jpg";
+import siaoCeo from "../assets/ceo-avatar.jpg";
+import silasPhoto from "../assets/silas-avatar.jpg";
 const services = [
   {
     icon: "⚡",
@@ -133,11 +133,17 @@ export default function Home() {
 
           <div className="relative hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-black/60">
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&h=480&fit=crop&auto=format"
-                alt="Web development in action"
-                className="w-full object-cover"
-              />
+              <picture>
+                <source media="(min-width: 1024px)" srcSet={workPhoto} />
+                <img
+                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                  alt="Responsive website project preview by LowskiTech"
+                  width="960"
+                  height="580"
+                  decoding="async"
+                  className="aspect-[7/5] w-full object-cover"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
             </div>
             <div className="absolute -top-4 -right-4 bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 shadow-xl">
@@ -224,6 +230,10 @@ export default function Home() {
                   <img
                     src={p.image}
                     alt={p.title}
+                    width="960"
+                    height="580"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
@@ -265,7 +275,15 @@ export default function Home() {
               </div>
               <p className="text-slate-300 text-sm leading-relaxed mb-5">"{t.text}"</p>
               <div className="flex items-center gap-3">
-                <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover bg-slate-700" />
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-10 h-10 rounded-full object-cover bg-slate-700"
+                />
                 <div>
                   <p className="text-white font-semibold text-sm">{t.name}</p>
                   <p className="text-slate-400 text-xs">{t.role}</p>

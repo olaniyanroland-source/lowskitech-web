@@ -42,6 +42,11 @@ export default function WebDesign() {
             <img
               src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=700&h=500&fit=crop&auto=format"
               alt="UI design work"
+              width="700"
+              height="500"
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 to-transparent" />

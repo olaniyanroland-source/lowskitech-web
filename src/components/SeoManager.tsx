@@ -147,6 +147,9 @@ export default function SeoManager() {
     setMeta("description", meta.description);
     setMeta("keywords", meta.keywords);
     setMeta("author", "LowskiTech");
+    setMeta("application-name", SITE_NAME);
+    setMeta("apple-mobile-web-app-title", SITE_NAME);
+    setMeta("format-detection", "telephone=no");
     setMeta("robots", "index, follow, max-image-preview:large");
     setMeta("theme-color", "#020617");
 
@@ -156,8 +159,11 @@ export default function SeoManager() {
     setMeta("og:description", meta.description, "property");
     setMeta("og:url", canonical, "property");
     setMeta("og:image", DEFAULT_IMAGE, "property");
+    setMeta("og:image:alt", "LowskiTech web development studio logo", "property");
+    setMeta("og:locale", "en_US", "property");
 
     setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:site", "@Rolandwale80s");
     setMeta("twitter:title", meta.title);
     setMeta("twitter:description", meta.description);
     setMeta("twitter:image", DEFAULT_IMAGE);
@@ -173,6 +179,7 @@ export default function SeoManager() {
           name: SITE_NAME,
           url: SITE_URL,
           logo: DEFAULT_IMAGE,
+          description: DEFAULT_DESCRIPTION,
           email: "roland@lowskitech.com",
           telephone: "+2349138823341",
           sameAs: [
@@ -196,6 +203,21 @@ export default function SeoManager() {
           name: meta.title,
           description: meta.description,
           isPartOf: { "@id": `${SITE_URL}/#website` },
+          inLanguage: "en",
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": `${SITE_URL}/#service`,
+          name: `${SITE_NAME} Web Development Services`,
+          url: `${SITE_URL}/services`,
+          provider: { "@id": `${SITE_URL}/#organization` },
+          serviceType: [
+            "Web development",
+            "Web design",
+            "Technical SEO",
+            "E-commerce website development",
+          ],
+          areaServed: "Worldwide",
         },
       ],
     });

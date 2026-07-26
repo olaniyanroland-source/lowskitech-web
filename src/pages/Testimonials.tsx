@@ -1,5 +1,5 @@
-import siaoCeo from "../assets/ceo.jpeg";
-import silasPhoto from "../assets/silas.jpg";
+import siaoCeo from "../assets/ceo-avatar.jpg";
+import silasPhoto from "../assets/silas-avatar.jpg";
 
 const testimonials = [
   {
@@ -68,7 +68,15 @@ export default function Testimonials() {
               <p className="text-slate-300 text-sm leading-relaxed flex-1 mb-6">"{t.text}"</p>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <img src={t.avatar} alt={t.name} className="w-11 h-11 rounded-full object-cover bg-slate-700" />
+                  <img
+                    src={t.avatar}
+                    alt={t.name}
+                    width="44"
+                    height="44"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-11 h-11 rounded-full object-cover bg-slate-700"
+                  />
                   <div>
                     <p className="text-white font-semibold text-sm">{t.name}</p>
                     <p className="text-slate-500 text-xs">{t.role}</p>

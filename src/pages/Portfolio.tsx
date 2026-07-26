@@ -1,7 +1,7 @@
 import { useState } from "react";
-import asaPhoto from "../assets/asastudio.png";
-import portfolio from "../assets/portfolio.png";
-import workPhoto from "../assets/siaosports.png";
+import asaPhoto from "../assets/asastudio-optimized.jpg";
+import portfolio from "../assets/portfolio-optimized.jpg";
+import workPhoto from "../assets/siaosports-optimized.jpg";
 
 const projects = [
   {
@@ -83,6 +83,10 @@ export default function Portfolio() {
                 <img
                   src={p.image}
                   alt={p.title}
+                  width="960"
+                  height="580"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent" />
