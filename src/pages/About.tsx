@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import rolandPhoto from "../assets/roland-portrait.jpg";
-import workPhoto from "../assets/work-optimized.jpg";
+import rolandPhoto from "../assets/roland5.jpeg";
+import workPhoto from "../assets/work.jpeg";
 
 const values = [
   { title: "Craftsmanship", desc: "We write clean, maintainable code and design with obsessive attention to detail." },
@@ -138,8 +138,8 @@ function ScrollStory() {
         <img
           src={rolandPhoto}
           alt="Roland Olaniyan portrait"
-          width="478"
-          height="720"
+          width="851"
+          height="1280"
           loading="eager"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-top transition-[opacity,transform,filter] duration-700"
@@ -152,8 +152,8 @@ function ScrollStory() {
         <img
           src={workPhoto}
           alt="Roland working on a computer"
-          width="405"
-          height="720"
+          width="720"
+          height="1280"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center transition-[opacity,transform,filter] duration-700"
